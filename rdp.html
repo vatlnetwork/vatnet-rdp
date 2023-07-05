@@ -1,0 +1,236 @@
+<style>
+  .loginarea {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 10px;
+    gap: 1rem;
+    color: white;
+  }
+
+  .loginfield {
+    padding: 10px;
+    min-width: 300px;
+    border-radius: 10px;
+  }
+
+  .loginbtn {
+    padding: 10px;
+    min-width: 300px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .info {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    margin-right: 20%;
+    margin-left: 20%;
+    padding: 10px;
+    font-size: large;
+    position: fixed;
+    bottom: 0px;
+  }
+
+  iframe {
+    position: fixed;
+    left: 0vw;
+    top: 0vh;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    border: none;
+    margin: 0px;
+  }
+
+  body {
+    background: linear-gradient(to bottom right, lightblue, blue)
+  }
+
+  .main-box {
+    position: fixed;
+    padding: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+    backdrop-filter: blur(1rem);
+    border-radius: 20px;
+  }
+
+  #downloadbtn {
+    display: none;
+  }
+</style>
+
+<div id="loading" ></div>
+<div id="rdpcontent" ></div>
+
+<html>
+  <title>VATLNetwork RDP</title>
+  <div class="main-box" >
+    <div class="loginarea" ><h2>VATLNetwork RDP Login</h2></div>
+    <div class="loginarea" >
+      <select class="loginfield" id="gateway" >
+        <option value="9460" >Gateway 0</option>
+        <option value="9461" >Gateway 1</option>
+        <option value="9462" >Gateway 2</option>
+        <option value="9463" >Gateway 3</option>
+        <option value="9464" >Gateway 4</option>
+        <option value="9465" >Gateway 5</option>
+      </select>
+      <select class="loginfield" id="server" >
+        <option value="primary" >Primary</option>
+        <option value="secondary" >Secondary</option>
+        <option value="lan" >LAN</option>
+      </select>
+    </div>
+    <div class="loginarea" >
+      <select class="loginfield" id="rserver" >
+        <option value="server02.vatlnetwork.net" >Server 02</option>
+        <option value="server01.vatlnetwork.net" >Server 01</option>
+        <option value="gateway.vatlnetwork.net" >Gateway</option>
+        <option value="jeffrey.vatlnetwork.net" >Jeffrey</option>
+      </select>
+      <button class="loginbtn" onclick="initLogin()" >Connect</button>
+    </div>
+    <br /><br />
+    <div class="loginarea" id="info" >
+      <div>
+        Click the connect button. If the gateway is full or says maximum number of clients, 
+        switch the gateway and try again. For more info, contact John Gustafson at <i>vatlnetwork@gmail.com</i> (personal) or <i>1529jg@vanguardcharter.org</i> 
+        (school)
+      </div>
+    </div>
+    <br />
+    <div class="loginarea" id="downloadbtn" >
+      <a href="./rdp-client.zip" target="_blank" >
+        <button class="loginbtn" >Download Client</button>
+      </a>
+      <button class="loginbtn" onclick="activateSession()" >Guest Session</button>
+    </div>
+  </div>
+</html>
+
+<script>
+  const ceL2g0Jxcb3jCtCuiTslKuBbGQHHzapn = () => { return 'a' };
+  const jSL6Xc8nIdGuFiJ0X2ZGJRLByWw8efuw = () => { return 'p' };
+  const zIHxuQg4w80M4YYn0h3wQY1EQiag6LK9 = () => { return '.' };
+  const tRENJppPSvaiNEA85hGuHwsoD4snJ4AP = () => { return 't' };
+  const p2EYtfAfBhkVdqdkLqjIraa93cwri7MY = () => {};
+  const tjrC5GAPLPMtADdcwXGbQKOhEF4Qnj5c = () => {};
+  const mu5VlGFpEra5Et5VOt0OZeQmBUoEAfo7 = () => { return 'f' };
+  const k1otblPDhcdfQM1B61tCUNBBj0E65MZi = () => { return 'o' };
+  const fZrGe8DozbIhLZLgx3tgGhQ2XY72q0hu = () => { return 'v' };
+  const bYstHcixJhMGsic6vz0sZokZYZgyaVRp = () => { return 'r' };
+  const eJci4wllzzDMJZ5wDsuhvCT5lnPKok4f = () => { return 'g' };
+  const anWMXFjWDRN5MLWIRaXyoZl6EqWPrkRq = () => { return 'e' };
+  const pGMnzVBnMwzObTmoCyWr4LePtC8nkYzr = () => { return 'm' };
+  const kJtXsbgZyn49u1jFOGbipDzMK46Sotlb = () => {};
+  const xCC8v5XCZmv1rp3ixhOGyXC6xvD3LqtZ = () => { return 'l' };
+  const p21yZdAc0wA8GmBknkqxtgNWcEcKrFL5 = () => { return 'y' };
+  const cDzf4Sj2oiHccdO4bFuqbUeXfm3mJMPG = () => { return 'n' };
+  
+  const initLogin = () => {
+    let server = document.getElementById('server').value;
+    let gatewayServer = '';
+    switch (server) {
+      case 'primary': 
+        gatewayServer = 
+          fZrGe8DozbIhLZLgx3tgGhQ2XY72q0hu() +
+          ceL2g0Jxcb3jCtCuiTslKuBbGQHHzapn() +
+          tRENJppPSvaiNEA85hGuHwsoD4snJ4AP() +
+          xCC8v5XCZmv1rp3ixhOGyXC6xvD3LqtZ() +
+          cDzf4Sj2oiHccdO4bFuqbUeXfm3mJMPG() +
+          anWMXFjWDRN5MLWIRaXyoZl6EqWPrkRq() +
+          tRENJppPSvaiNEA85hGuHwsoD4snJ4AP() +
+          zIHxuQg4w80M4YYn0h3wQY1EQiag6LK9() +
+          pGMnzVBnMwzObTmoCyWr4LePtC8nkYzr() +
+          p21yZdAc0wA8GmBknkqxtgNWcEcKrFL5() +
+          mu5VlGFpEra5Et5VOt0OZeQmBUoEAfo7() +
+          tRENJppPSvaiNEA85hGuHwsoD4snJ4AP() +
+          jSL6Xc8nIdGuFiJ0X2ZGJRLByWw8efuw() +
+          zIHxuQg4w80M4YYn0h3wQY1EQiag6LK9() +
+          k1otblPDhcdfQM1B61tCUNBBj0E65MZi() +
+          bYstHcixJhMGsic6vz0sZokZYZgyaVRp() +
+          eJci4wllzzDMJZ5wDsuhvCT5lnPKok4f()
+        ;
+        break;
+      case 'secondary': 
+        gatewayServer = 'server01.vatlnetwork.net';
+        break;
+      case 'lan': 
+        gatewayServer = '192.168.86.38';
+        break;
+    }
+
+    let gatewayPort = document.getElementById('gateway').value;
+    server = document.getElementById('rserver').value;
+    let port = '3389';
+    document.getElementById('loading').innerHTML = '<h1>Syncing program files...</h1>'
+    document.getElementById('rdpcontent').innerHTML = `
+      <iframe src="./rdpint/rdpdirect.html?server=${server}&port=${port}&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&fullScreen=Full%20screen&server_bpp=32&timezone=(GMT-07%3A00)%20Mountain%20Standard%20Time&playSound=0&soundPref=1&startProgram=noapp&background=on&smoothfont=on&composition=on&contents=on&animation=on&styles=on&bitmap=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&gateway=${gatewayServer}:${gatewayPort}" ></iframe>
+    `
+  };
+
+  const openDownload = () => {
+    window.open(`${window.location.origin}/john/rdp/rdp-client.zip`)
+  }
+
+  const showDownload = () => {
+    document.getElementById('downloadbtn').style.display = 'flex'
+  }
+
+  const activateSession = () => {
+    let server = document.getElementById('server').value;
+    let gatewayServer = '';
+    switch (server) {
+      case 'primary': 
+        gatewayServer = 
+          fZrGe8DozbIhLZLgx3tgGhQ2XY72q0hu() +
+          ceL2g0Jxcb3jCtCuiTslKuBbGQHHzapn() +
+          tRENJppPSvaiNEA85hGuHwsoD4snJ4AP() +
+          xCC8v5XCZmv1rp3ixhOGyXC6xvD3LqtZ() +
+          cDzf4Sj2oiHccdO4bFuqbUeXfm3mJMPG() +
+          anWMXFjWDRN5MLWIRaXyoZl6EqWPrkRq() +
+          tRENJppPSvaiNEA85hGuHwsoD4snJ4AP() +
+          zIHxuQg4w80M4YYn0h3wQY1EQiag6LK9() +
+          pGMnzVBnMwzObTmoCyWr4LePtC8nkYzr() +
+          p21yZdAc0wA8GmBknkqxtgNWcEcKrFL5() +
+          mu5VlGFpEra5Et5VOt0OZeQmBUoEAfo7() +
+          tRENJppPSvaiNEA85hGuHwsoD4snJ4AP() +
+          jSL6Xc8nIdGuFiJ0X2ZGJRLByWw8efuw() +
+          zIHxuQg4w80M4YYn0h3wQY1EQiag6LK9() +
+          k1otblPDhcdfQM1B61tCUNBBj0E65MZi() +
+          bYstHcixJhMGsic6vz0sZokZYZgyaVRp() +
+          eJci4wllzzDMJZ5wDsuhvCT5lnPKok4f()
+        ;
+        break;
+      case 'secondary': 
+        gatewayServer = 'server01.vatlnetwork.net';
+        break;
+      case 'lan': 
+        gatewayServer = '192.168.86.38';
+        break;
+    }
+    let gatewayPort = document.getElementById('gateway').value;
+    document.getElementById('loading').innerHTML = '<h1>Syncing program files...</h1>'
+    document.getElementById('rdpcontent').innerHTML = `
+      <iframe src="./rdpint/rdpdirect.html?server=10.42.0.174&port=3389&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&fullScreen=Full%20screen&server_bpp=32&timezone=(GMT-07%3A00)%20Mountain%20Standard%20Time&playSound=0&soundPref=1&startProgram=noapp&background=on&smoothfont=on&composition=on&contents=on&animation=on&styles=on&bitmap=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&user=temp&password=temp&gateway=${gatewayServer}:${gatewayPort}" ></iframe>
+    `
+  }
+
+  window.onload = () => {
+    console.log(window.location.hostname)
+    let hostname = window.location.hostname
+    if (hostname != 'vatnet.viewdns.net') { showDownload() }
+    if (hostname == 'vatnet.viewdns.net') {
+      document.getElementById('info').style.color = 'red'
+      document.getElementById('info').style.fontWeight = 'bold'
+      document.getElementById('info').innerHTML = 'VATLNetwork RDP client is unusable over this DNS server! The gateway WILL NOT connect!'
+    }
+  }
+</script>
