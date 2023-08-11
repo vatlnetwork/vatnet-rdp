@@ -1,0 +1,2 @@
+rm rdp-client.zip
+zip rdp-client.zip * -r
