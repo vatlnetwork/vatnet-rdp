@@ -1,2 +1,5 @@
 rm rdp-client.zip
 zip rdp-client.zip * -r
+git add .
+git commit -m 'update'
+git push
