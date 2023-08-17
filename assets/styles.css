@@ -1,0 +1,65 @@
+.loginarea {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 10px;
+  gap: 1rem;
+  color: white;
+}
+
+.loginfield {
+  padding: 10px;
+  min-width: 300px;
+  border-radius: 10px;
+}
+
+.loginbtn {
+  padding: 10px;
+  min-width: 300px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.info {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-right: 20%;
+  margin-left: 20%;
+  padding: 10px;
+  font-size: large;
+  position: fixed;
+  bottom: 0px;
+}
+
+iframe {
+  position: fixed;
+  left: 0vw;
+  top: 0vh;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  border: none;
+  margin: 0px;
+}
+
+body {
+  background: linear-gradient(to bottom right, lightblue, blue)
+}
+
+.main-box {
+  position: fixed;
+  padding: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(1rem);
+  border-radius: 20px;
+}
+
+#downloadbtn {
+  display: none;
+}
