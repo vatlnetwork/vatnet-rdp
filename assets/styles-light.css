@@ -1,0 +1,89 @@
+.loginarea {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 10px;
+  gap: 1rem;
+  color: black;
+}
+
+.loginfield {
+  padding: 10px;
+  min-width: 300px;
+  border-radius: 10px;
+}
+
+.loginbtn {
+  padding: 10px;
+  min-width: 300px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  background-color: rgb(230,230,230);
+}
+
+.info {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-right: 20%;
+  margin-left: 20%;
+  padding: 10px;
+  font-size: large;
+  position: fixed;
+  bottom: 0px;
+}
+
+iframe {
+  position: fixed;
+  left: 0vw;
+  top: 0vh;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  border: none;
+  margin: 0px;
+}
+
+body {
+  background: rgb(230,230,230);
+}
+
+.release {
+  color: black;
+}
+
+a {
+  font-weight: bold;
+  color: black;
+  padding-left: 10px;
+}
+
+.main-box {
+  position: fixed;
+  padding: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  backdrop-filter: blur(1rem);
+  border-radius: 20px;
+  border: 1px solid silver;
+}
+
+#downloadbtn {
+  display: none;
+}
+
+select {
+  padding: 10px;
+  min-width: 300px;
+  border-radius: 10px;
+  color: black;
+  background-color: rgb(230,230,230);
+}
+
+option {
+  font-size: 25;
+  font-weight: bold;
+}

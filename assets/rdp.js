@@ -66,6 +66,30 @@ const showDownload = () => {
   document.getElementById('downloadbtn').style.display = 'flex'
 }
 
+const switchTheme = () => {
+  let currentTheme = getCurrentTheme()
+  if (currentTheme == 'light') {
+    localStorage.setItem('vatlnetwork-rdp-theme', 'dark')
+  } else {
+    localStorage.setItem('vatlnetwork-rdp-theme', 'light')
+  }
+  setCurrentTheme()
+}
+
+const getCurrentTheme = () => {
+  let currentTheme = localStorage.getItem('vatlnetwork-rdp-theme')
+  if (currentTheme == null) {
+    return 'dark'
+  } else {
+    return currentTheme
+  }
+}
+
+const setCurrentTheme = () => {
+  let currentTheme = getCurrentTheme()
+  document.getElementById('stylesheet').setAttribute('href', `assets/styles-${currentTheme}.css`)
+}
+
 window.onload = () => {
   console.log(window.location.hostname)
   let hostname = window.location.hostname
@@ -75,4 +99,5 @@ window.onload = () => {
     document.getElementById('info').style.fontWeight = 'bold'
     document.getElementById('info').innerHTML = 'VATLNetwork RDP client is unusable over this DNS server! The gateway WILL NOT connect!'
   }
+  setCurrentTheme()
 }
