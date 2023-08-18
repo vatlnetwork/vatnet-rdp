@@ -4,12 +4,16 @@ window.$id = function (id){
 
 
 function initTimezone(){
-    var zone = hi5.DateUtils.getGMT();
+    var zone = hi5.timezone.getTimeZone();
+    if (!zone){
+        return;
+    }
+    
     var tzSelect = $id('timezone');
     var ops = tzSelect.options;
     h = ops.length;
     for (var i = 0; i < h; i++){
-        if (ops[i].text.indexOf(zone) == 0){
+        if (ops[i].value == zone.standardName){
             tzSelect.selectedIndex = i;
             break;
         }
@@ -131,7 +135,8 @@ function initUI(){
     if (btnNextScr){
     	btnNextScr.onclick = function(){
     		svGlobal.monitors = svGlobal.monitors || []; 
-    		svGlobal.monitors.push(window.open('monitor.html'));
+            var win_opt = "width=" + window.outerWidth + ",height=" + window.outerHeight;
+    		svGlobal.monitors.push(window.open('monitor.html', 'new-window', win_opt));
     	};
     }
 

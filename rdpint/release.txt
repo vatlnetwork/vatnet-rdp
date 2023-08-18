@@ -1,3 +1,129 @@
+Build 1036
+1. RDP: Fixed some customized cursor rendering issue.
+2. RDP: Better PWD support.
+3. Fixed Set-Cookie without Secure flag warning.
+
+
+Build 1035
+1. Proxy: Fixed unmatched host name and redirecting issue.
+2. RDP: Improved RemoteApp Windows sizing.
+3. SSH: Fixed input issue after switching window focus.
+4: RDP: Fixed a lock release issue with smart card kerberos authentication.
+
+
+Build 1034:
+1. Player: Fixed "File not found" exception was not captured issue.
+2. .disposable directory is only created when it's in use.
+3. RDP: Fixed  smart card control code error in the agent.
+
+
+Build 1033:
+1. SSH: Right click to paste instead of showing history.
+2. SSH: Added History button in toolbar.
+
+Build 1032:
+1. RDP: Make multi-monitor works when menu bar is hidden or always displayed on macOS.
+2. SSH: Fixed recording file not saved issue when SSH server is restarted.
+
+Build 1031:
+1. Allow sub directories in the __record_name parameter.
+2. SSH: NumpadEnter key is also supported during login.
+
+Build 1030:
+1. RDP: Fixed a cipher suite issue with RD Webfeed integration.
+2. OAUTH: Added auth_uri for oauth2.json.
+3. Rename "kerberos.realm" to "kerberos.kdc" in gateway.conf.
+
+Build 1029:
+1. VNC: Dialog to allow user to enter password if it failed to login.
+2. VNC: Better QEMU extension key compatibility with consol/debian-xfce-vnc container.
+
+Build 1028
+1. Fixed duplicated parameters in the WebSocket URL when the client is reconnecting.
+2. SSH: Fixed a copying issue after scrolling in editor.
+
+Build 1027
+1. VNC: better compatibility when RFB version is 4.
+
+Build 1026
+1. Fixed a issue with authorization = Basic (gateway.conf)
+2. RDP: added added rdp.sessionInfo.joiners and oncontrolchange(sessionInfo)
+3. SSH: added ssh.cache (gateway.conf) to enable/disable SSH history cache for joined sessions (default is true).
+4. Better file type name for file manager.
+
+Build 1025
+1. RDP: allow set up "clientHost" in users.json.
+
+Build 1024
+1. RDP: Fixed a copying file to shared drive issue.
+2. Always disable session id reuse on joined sessions.
+
+Build 1023
+1. RDP: fixed mouse release issue when it's running in iframe.
+2. PROXY: fixed HTTP proxy path issue.
+3. UI: Added HTTP Proxy UI and loadBalanceInfo for RDP.
+4. Kerberos authentication can be enabled with kerberos.realm in gateway.conf.
+
+Build 1022
+1. SSH: Fixed "\n" not handled issue in command list(cmdList).
+2. RDP: Session id parameters are disabled by default (Reuse session id). Turn on with session.id.param = true in gateway.conf.
+
+Build 1021
+1. RDP: Reuse session id if user refresh the browser or reconnect.
+2. RDP: Fixed wrong default time zone name issue.
+3. RDP: Fixed a IE11 compatibility issue.
+4. SSH: Fixed a line wrapping issue.
+5. SSH: Multiple commands are not allowed if command white list is enabled.
+
+Build 1020
+1. SSH: Fixed a JSON format error.
+
+Build 1019
+1. SSH: Fixed a bug with command white list.
+2. RDP: Fixed orientationchange issue on mobile browsers.
+3. Fixed toolbar compatibility issue with jquery on mobile devices.
+4. Agent 2.7 (Windows) fixed a authentication issue with ePass2000.
+
+Build 1018
+1. RDP: Fixed multiple mouse buttons clicking/dragging at the same time issue.
+
+Build 1017
+1. Fixed two mouse button pressing at the same time issue.
+2. New com.toremote.gateway.plugin.HttpAccessInterface, so plugin can verify proxy access.
+public class SimpleManager implements ManagerInterface, HttpAccessInterface {
+    	@Override
+	public void onAccess(HttpHeader header) throws HttpException{
+		System.out.println(header.toString());
+		System.out.println("Is Proxy: " + Proxy.isProxy(header));
+		
+//		throw new HttpException(403, "Forbidden");
+	}
+
+	@Override
+	public void afterAccess(HttpHeader header) {
+		// TODO Auto-generated method stub
+		
+	}	
+3. RDP: New "dpi" parameter.
+
+4. Won't send SMB URL to use if the format is invlaid.
+
+5. Increased connection timeout (for slow network).
+
+
+Build 1016
+1. Better time zone handling.
+2. Fixed a Chrome/Edge crash issue on specific web sites when time zone redirection is enabled. https://bugs.chromium.org/p/chromium/issues/detail?id=1371532&q=STATUS_BREAKPOINT&can=2
+
+Build 1015
+1. Allow playback of the recordings from recdir if you set recdir.play.enable = true in gateway.conf.
+2. No need to include dvc_*.js in player.html.
+
+Build 1014
+1. Attach local printers on Windows (native agent is needed).
+
+Build 1013 (6.2)
+
 Build 1012
 1. More info in sessiondashboard.html.
 2. Fixed a connection issue with native shadowing (shadow.html).
