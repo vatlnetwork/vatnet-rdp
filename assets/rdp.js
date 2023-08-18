@@ -66,32 +66,26 @@ const showDownload = () => {
   document.getElementById('downloadbtn').style.display = 'flex'
 }
 
-const switchTheme = () => {
-  let currentTheme = getCurrentTheme()
-  if (currentTheme == 'light') {
-    localStorage.setItem('vatlnetwork-rdp-theme', 'dark')
+const watchTheme = () => {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    setCurrentTheme('dark')
   } else {
-    localStorage.setItem('vatlnetwork-rdp-theme', 'light')
+    setCurrentTheme('light')
   }
-  setCurrentTheme()
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => {
+    if (matches) {
+      setCurrentTheme('dark')
+    } else {
+      setCurrentTheme('light')
+    }
+  })
 }
 
-const getCurrentTheme = () => {
-  let currentTheme = localStorage.getItem('vatlnetwork-rdp-theme')
-  if (currentTheme == null) {
-    return 'dark'
-  } else {
-    return currentTheme
-  }
-}
-
-const setCurrentTheme = () => {
-  let currentTheme = getCurrentTheme()
-  document.getElementById('stylesheet').setAttribute('href', `assets/styles-${currentTheme}.css`)
+const setCurrentTheme = (theme) => {
+  document.getElementById('stylesheet').setAttribute('href', `assets/styles-${theme}.css`)
 }
 
 window.onload = () => {
-  console.log(window.location.hostname)
   let hostname = window.location.hostname
   if (hostname != 'vatnet.viewdns.net') { showDownload() }
   if (hostname == 'vatnet.viewdns.net') {
@@ -99,5 +93,5 @@ window.onload = () => {
     document.getElementById('info').style.fontWeight = 'bold'
     document.getElementById('info').innerHTML = 'VATLNetwork RDP client is unusable over this DNS server! The gateway WILL NOT connect!'
   }
-  setCurrentTheme()
+  watchTheme()
 }
