@@ -6,26 +6,26 @@
 <html>
   <title>VATLNetwork RDP</title>
   <div class="main-box" >
-    <div>
-      VATLNetwork WebRDP Client v1.0.1
+    <div class="release" >
+      VATLNetwork WebRDP Client v1.0.2
       <a href="release.html" >Release Notes</a>
     </div>
     <div class="loginarea" ><h2>Login</h2></div>
     <div class="loginarea" >
-      <select class="loginfield" id="gateway" >
+      <select id="gateway" >
         <option value="9460" >Gateway 0</option>
         <option value="9461" >Gateway 1</option>
         <option value="9462" >Gateway 2</option>
         <option value="9463" >Gateway 3</option>
       </select>
-      <select class="loginfield" id="server" >
+      <select id="server" >
         <option value="primary" >Primary</option>
         <option value="secondary" >Secondary</option>
         <option value="lan" >LAN</option>
       </select>
     </div>
     <div class="loginarea" >
-      <select class="loginfield" id="rserver" >
+      <select id="rserver" >
         <option value="server02.vatlnetwork.net" >Main</option>
       </select>
       <button class="loginbtn" onclick="initLogin()" >Connect</button>

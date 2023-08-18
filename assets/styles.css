@@ -19,6 +19,8 @@
   background-color: white;
   border: none;
   border-radius: 10px;
+  color: white;
+  background-color: rgb(80,80,80);
 }
 
 .info {
@@ -45,7 +47,17 @@ iframe {
 }
 
 body {
-  background: linear-gradient(to bottom right, lightblue, blue)
+  background: linear-gradient(to bottom right, rgb(70, 70, 70), rgba(0, 0, 0))
+}
+
+.release {
+  color: white;
+}
+
+a {
+  font-weight: bold;
+  color: white;
+  padding-left: 10px;
 }
 
 .main-box {
@@ -55,11 +67,25 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+  background: linear-gradient(to bottom right, rgba(80, 80, 80, 0.4), rgba(10, 10, 10, 0.2));
   backdrop-filter: blur(1rem);
   border-radius: 20px;
+  border: 1px solid silver;
 }
 
 #downloadbtn {
   display: none;
+}
+
+select {
+  padding: 10px;
+  min-width: 300px;
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(80,80,80);
+}
+
+option {
+  font-size: 25;
+  font-weight: bold;
 }
