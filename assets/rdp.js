@@ -52,11 +52,21 @@ const initLogin = () => {
   let gatewayPort = document.getElementById('gateway').value;
   server = document.getElementById('rserver').value;
   let port = '3389';
-  document.getElementById('loading').innerHTML = '<h1>Syncing program files...</h1>'
+  document.getElementById('loading').innerHTML = '<h1>Downloading software...</h1>'
   document.getElementById('rdpcontent').innerHTML = `
-    <iframe src="./rdpint/rdpdirect.html?server=${server}&port=${port}&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&fullScreen=Full%20screen&server_bpp=32&timezone=(GMT-07%3A00)%20Mountain%20Standard%20Time&playSound=0&soundPref=1&startProgram=noapp&background=on&smoothfont=on&composition=on&contents=on&animation=on&styles=on&bitmap=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&gateway=${gatewayServer}:${gatewayPort}" ></iframe>
+    <div id="rdpwindow" >
+      <div class="rdptopbar" >
+        <button class="rdpclosebtn" onclick="closeRdp()" >Close</button>
+      </div>
+      <iframe src="./rdpint/rdpdirect.html?server=${server}&port=${port}&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&fullScreen=Full%20screen&server_bpp=32&timezone=(GMT-07%3A00)%20Mountain%20Standard%20Time&playSound=0&soundPref=1&startProgram=noapp&background=on&smoothfont=on&composition=on&contents=on&animation=on&styles=on&bitmap=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&gateway=${gatewayServer}:${gatewayPort}" ></iframe>
+    </div>
   `
 };
+
+const closeRdp = () => {
+  document.getElementById('rdpcontent').innerHTML = ''
+  document.getElementById('loading').innerHTML = ''
+}
 
 const openDownload = () => {
   window.open(`${window.location.origin}/john/rdp/rdp-client.zip`)
