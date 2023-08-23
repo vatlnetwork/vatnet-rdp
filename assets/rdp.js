@@ -56,16 +56,59 @@ const initLogin = () => {
   document.getElementById('rdpcontent').innerHTML = `
     <div id="rdpwindow" >
       <div class="rdptopbar" >
+        <select id="topbar-net" onchange="selectNewNetwork()" >
+          <option value="primary" >Primary</option>
+          <option value="secondary" >Secondary</option>
+          <option value="lan" >LAN</option>
+        </select>
+        <select id="topbar-server" onchange="selectNewServer()" >
+          <option value="server02.vatlnetwork.net" >Server 02</option>
+          <option value="gateway.vatlnetwork.net" >Gateway</option>
+          <option value="server01.vatlnetwork.net" >Server 01</option>
+        </select>
+        <select id="topbar-gateway" onchange="selectNewGateway()" >
+          <option value="9460" >Gateway 0</option>
+          <option value="9461" >Gateway 1</option>
+          <option value="9462" >Gateway 2</option>
+          <option value="9463" >Gateway 3</option>
+          <option value="9464" >Gateway 4</option>
+          <option value="9465" >Gateway 5</option>
+          <option value="9466" >Gateway 6</option>
+          <option value="9467" >Gateway 7</option>
+        </select>
+        <button onclick="reconnect()" >Reconnect</button>
         <button class="rdpclosebtn" onclick="closeRdp()" >Close</button>
       </div>
       <iframe src="./rdpint/rdpdirect.html?server=${server}&port=${port}&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&fullScreen=Full%20screen&server_bpp=32&timezone=(GMT-07%3A00)%20Mountain%20Standard%20Time&playSound=0&soundPref=1&startProgram=noapp&background=on&smoothfont=on&composition=on&contents=on&animation=on&styles=on&bitmap=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&gateway=${gatewayServer}:${gatewayPort}" ></iframe>
     </div>
   `
+  document.getElementById('topbar-net').value = document.getElementById('server').value
+  document.getElementById('topbar-gateway').value = document.getElementById('gateway').value
+  document.getElementById('topbar-server').value = document.getElementById('rserver').value
 };
+
+const reconnect = () => {
+  initLogin()
+}
 
 const closeRdp = () => {
   document.getElementById('rdpcontent').innerHTML = ''
   document.getElementById('loading').innerHTML = ''
+}
+
+const selectNewServer = () => {
+  document.getElementById('rserver').value = document.getElementById('topbar-server').value
+  initLogin()
+}
+
+const selectNewNetwork = () => {
+  document.getElementById('server').value = document.getElementById('topbar-net').value
+  initLogin()
+}
+
+const selectNewGateway = () => {
+  document.getElementById('gateway').value = document.getElementById('topbar-gateway').value
+  initLogin()
 }
 
 const openDownload = () => {

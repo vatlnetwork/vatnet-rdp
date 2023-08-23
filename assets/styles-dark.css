@@ -54,6 +54,7 @@
   padding: 5px;
   display: flex;
   justify-content: right;
+  gap: 1rem;
 }
 
 h1 {
@@ -106,7 +107,7 @@ a {
   display: none;
 }
 
-select {
+.select {
   padding: 10px;
   min-width: 300px;
   border-radius: 10px;
@@ -114,7 +115,7 @@ select {
   background-color: rgb(80,80,80);
 }
 
-option {
+.option {
   font-size: 25;
   font-weight: bold;
 }

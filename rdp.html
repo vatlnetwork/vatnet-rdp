@@ -7,30 +7,32 @@
   <title>VATLNetwork RDP</title>
   <div class="main-box" >
     <div class="release" >
-      VATLNetwork WebRDP Client v1.0.7
+      VATLNetwork WebRDP Client v1.0.8
       <a href="release.html" >Release Notes</a>
     </div>
     <div class="loginarea" ><h2>Login</h2></div>
     <div class="loginarea" >
-      <select id="gateway" >
-        <option value="9460" >Gateway 0</option>
-        <option value="9461" >Gateway 1</option>
-        <option value="9462" >Gateway 2</option>
-        <option value="9463" >Gateway 3</option>
-        <option value="9464" >Gateway 4</option>
-        <option value="9465" >Gateway 5</option>
-        <option value="9466" >Gateway 6</option>
-        <option value="9467" >Gateway 7</option>
+      <select id="gateway" class="select" >
+        <option value="9460" class="option" >Gateway 0</option>
+        <option value="9461" class="option" >Gateway 1</option>
+        <option value="9462" class="option" >Gateway 2</option>
+        <option value="9463" class="option" >Gateway 3</option>
+        <option value="9464" class="option" >Gateway 4</option>
+        <option value="9465" class="option" >Gateway 5</option>
+        <option value="9466" class="option" >Gateway 6</option>
+        <option value="9467" class="option" >Gateway 7</option>
       </select>
-      <select id="server" >
-        <option value="primary" >Primary</option>
-        <option value="secondary" >Secondary</option>
-        <option value="lan" >LAN</option>
+      <select id="server" class="select" >
+        <option value="primary" class="option" >Primary</option>
+        <option value="secondary" class="option" >Secondary</option>
+        <option value="lan" class="option" >LAN</option>
       </select>
     </div>
     <div class="loginarea" >
-      <select id="rserver" >
-        <option value="server02.vatlnetwork.net" >Main</option>
+      <select id="rserver" class="select" >
+        <option value="server02.vatlnetwork.net" class="option" >Server 02</option>
+        <option value="gateway.vatlnetwork.net" class="option" >Gateway</option>
+        <option value="server01.vatlnetwork.net" class="option" >Server 01</option>
       </select>
       <button class="loginbtn" onclick="initLogin()" >Connect</button>
     </div>
