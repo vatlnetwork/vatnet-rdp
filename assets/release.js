@@ -1,5 +1,12 @@
 const releases = [
   {
+    releaseNumber: '1.1.0',
+    releaseDate: '8/25/2023',
+    releaseNotes: [
+      'Added header / title to release notes page'
+    ]
+  },
+  {
     releaseNumber: '1.0.9',
     releaseDate: '8/25/2023',
     releaseNotes: [
