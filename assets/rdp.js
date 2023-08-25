@@ -1,20 +1,20 @@
-const ceL2g0Jxcb3jCtCuiTslKuBbGQHHzapn = () => { return 'a' };
-const jSL6Xc8nIdGuFiJ0X2ZGJRLByWw8efuw = () => { return 'p' };
-const zIHxuQg4w80M4YYn0h3wQY1EQiag6LK9 = () => { return '.' };
-const tRENJppPSvaiNEA85hGuHwsoD4snJ4AP = () => { return 't' };
-const p2EYtfAfBhkVdqdkLqjIraa93cwri7MY = () => {};
-const tjrC5GAPLPMtADdcwXGbQKOhEF4Qnj5c = () => {};
-const mu5VlGFpEra5Et5VOt0OZeQmBUoEAfo7 = () => { return 'f' };
-const k1otblPDhcdfQM1B61tCUNBBj0E65MZi = () => { return 'o' };
-const fZrGe8DozbIhLZLgx3tgGhQ2XY72q0hu = () => { return 'v' };
-const bYstHcixJhMGsic6vz0sZokZYZgyaVRp = () => { return 'r' };
-const eJci4wllzzDMJZ5wDsuhvCT5lnPKok4f = () => { return 'g' };
-const anWMXFjWDRN5MLWIRaXyoZl6EqWPrkRq = () => { return 'e' };
-const pGMnzVBnMwzObTmoCyWr4LePtC8nkYzr = () => { return 'm' };
-const kJtXsbgZyn49u1jFOGbipDzMK46Sotlb = () => {};
-const xCC8v5XCZmv1rp3ixhOGyXC6xvD3LqtZ = () => { return 'l' };
-const p21yZdAc0wA8GmBknkqxtgNWcEcKrFL5 = () => { return 'y' };
-const cDzf4Sj2oiHccdO4bFuqbUeXfm3mJMPG = () => { return 'n' };
+const ceL2g0Jxcb3jCtCuiTslKuBbGQHHzapn = () => { return characters['01'] };
+const jSL6Xc8nIdGuFiJ0X2ZGJRLByWw8efuw = () => { return characters['0110'] };
+const zIHxuQg4w80M4YYn0h3wQY1EQiag6LK9 = () => { return characters['010101'] };
+const tRENJppPSvaiNEA85hGuHwsoD4snJ4AP = () => { return characters['1'] };
+const p2EYtfAfBhkVdqdkLqjIraa93cwri7MY = () => { return characters['1000'] };
+const tjrC5GAPLPMtADdcwXGbQKOhEF4Qnj5c = () => { return characters['1010'] };
+const mu5VlGFpEra5Et5VOt0OZeQmBUoEAfo7 = () => { return characters['0010'] };
+const k1otblPDhcdfQM1B61tCUNBBj0E65MZi = () => { return characters['111'] };
+const fZrGe8DozbIhLZLgx3tgGhQ2XY72q0hu = () => { return characters['0001'] };
+const bYstHcixJhMGsic6vz0sZokZYZgyaVRp = () => { return characters['010'] };
+const eJci4wllzzDMJZ5wDsuhvCT5lnPKok4f = () => { return characters['110'] };
+const anWMXFjWDRN5MLWIRaXyoZl6EqWPrkRq = () => { return characters['0'] };
+const pGMnzVBnMwzObTmoCyWr4LePtC8nkYzr = () => { return characters['11'] };
+const kJtXsbgZyn49u1jFOGbipDzMK46Sotlb = () => { return characters['100'] };
+const xCC8v5XCZmv1rp3ixhOGyXC6xvD3LqtZ = () => { return characters['0100'] };
+const p21yZdAc0wA8GmBknkqxtgNWcEcKrFL5 = () => { return characters['1011'] };
+const cDzf4Sj2oiHccdO4bFuqbUeXfm3mJMPG = () => { return characters['10'] };
 
 const initLogin = () => {
   let server = document.getElementById('server').value;

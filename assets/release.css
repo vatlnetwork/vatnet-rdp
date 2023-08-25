@@ -1,0 +1,24 @@
+h2 {
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid lightblue;
+}
+
+ul {
+  text-align: center;
+  border-radius: 5px;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid lightblue;
+}
+
+body {
+  background-color: rgb(230,230,230);
+}
+
+li {
+  padding: 5px;
+}
