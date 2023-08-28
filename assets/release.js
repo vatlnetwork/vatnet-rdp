@@ -1,5 +1,12 @@
 const releases = [
   {
+    releaseNumber: '1.1.1',
+    releaseDate: '8/28/2023',
+    releaseNotes: [
+      'Updated select option styles'
+    ]
+  },
+  {
     releaseNumber: '1.1.0',
     releaseDate: '8/25/2023',
     releaseNotes: [
