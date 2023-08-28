@@ -146,5 +146,6 @@ window.onload = function() {
     //     hi5.notifications.notify('Please make sure the zoom level of your browser is 100%');
     // }
     
+    localStorage.setItem('vatnet-rdp-loading', 'false')
 };
 

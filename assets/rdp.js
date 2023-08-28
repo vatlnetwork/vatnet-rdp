@@ -52,7 +52,6 @@ const initLogin = () => {
   let gatewayPort = document.getElementById('gateway').value;
   server = document.getElementById('rserver').value;
   let port = '3389';
-  document.getElementById('loading').innerHTML = '<h1>Downloading software...</h1>'
   let rdpUrl = `./rdpint/rdpdirect.html?server=${server}&port=${port}&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&fullScreen=Full%20screen&server_bpp=32&timezone=(GMT-07%3A00)%20Mountain%20Standard%20Time&playSound=0&soundPref=1&startProgram=noapp&background=on&smoothfont=on&composition=on&contents=on&animation=on&styles=on&bitmap=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&gateway=${gatewayServer}:${gatewayPort}`
   if (document.getElementById('performance-mode').checked) {
     rdpUrl = `./rdpint/rdpdirect.html?server=${server}&port=${port}&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&fullScreen=Full%20screen&server_bpp=16&timezone=Mountain%20Standard%20Time&playSound=0&soundPref=0&startProgram=noapp&smoothfont=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&gateway=${gatewayServer}:${gatewayPort}`
@@ -85,9 +84,17 @@ const initLogin = () => {
         <button onclick="reconnect()" >Reconnect</button>
         <button class="rdpclosebtn" onclick="closeRdp()" >Close</button>
       </div>
+      <div id="loading" ></div>
       <iframe src="${rdpUrl}" ></iframe>
     </div>
   `
+  document.getElementById('loading').innerHTML = '<h1>Downloading software...</h1>'
+  localStorage.setItem('vatnet-rdp-loading', 'true')
+  window.addEventListener('storage', (event) => {
+    if (event.key == 'vatnet-rdp-loading' && event.newValue == 'false') {
+      document.getElementById('loading').remove()
+    }
+  })
   document.getElementById('topbar-net').value = document.getElementById('server').value
   document.getElementById('topbar-gateway').value = document.getElementById('gateway').value
   document.getElementById('topbar-server').value = document.getElementById('rserver').value
@@ -105,7 +112,6 @@ const reconnect = () => {
 
 const closeRdp = () => {
   document.getElementById('rdpcontent').innerHTML = ''
-  document.getElementById('loading').innerHTML = ''
 }
 
 const selectNewServer = () => {
