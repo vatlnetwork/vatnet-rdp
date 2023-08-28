@@ -36,6 +36,7 @@
 
 #rdpcontent {
   z-index: 1000;
+  background-color: rgb(230,230,230);
 }
 
 #rdpwindow {
@@ -47,6 +48,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 10000;
+  background-color: rgb(230,230,230);
 }
 
 .rdptopbar {
@@ -59,6 +61,7 @@
 
 h1 {
   text-align: center;
+  color: blue;
 }
 
 .rdpclosebtn {

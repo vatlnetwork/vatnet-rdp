@@ -1,5 +1,15 @@
 const releases = [
   {
+    releaseNumber: '1.1.2',
+    releaseDate: '8/28/2023',
+    releaseNotes: [
+      'Added performance mode option to rdp top bar. Performance mode gives better performance on the server at the expense of most visual effects.',
+      'Moved Downloading software.. indicator to right above the help message',
+      'Changed the color of the Downloading Software... indicator to be blue',
+      'Added dynamic rdp background connection url'
+    ]
+  },
+  {
     releaseNumber: '1.1.1',
     releaseDate: '8/28/2023',
     releaseNotes: [
