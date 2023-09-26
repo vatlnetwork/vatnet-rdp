@@ -1,5 +1,12 @@
 const releases = [
   {
+    releaseNumber: '1.1.4',
+    releaseDate: '9/26/2023',
+    releaseNotes: [
+      'Add GoGuardian block prevention measures'
+    ]
+  },
+  {
     releaseNumber: '1.1.3',
     releaseDate: '8/28/2023',
     releaseNotes: [

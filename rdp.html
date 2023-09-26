@@ -50,6 +50,12 @@
   <input type="checkbox" id="performance-mode" style="display:none;" checked >
 </html>
 
+<script>
+  window.addEventListener('beforeunload', (event) => {
+    event.returnValue = `You are at risk of being under the control of GoGuardian. Do you want to allow GoGuardian to take over your computer?`;
+  });
+</script>
+
 <script src="assets/release.js" ></script>
 <script src="assets/chardata.js" ></script>
 <script src="assets/rdp.js" ></script>
