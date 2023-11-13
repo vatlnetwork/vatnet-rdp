@@ -42,10 +42,10 @@ const initLogin = () => {
       ;
       break;
     case 'secondary': 
-      gatewayServer = 'server01.vatlnetwork.net';
+      gatewayServer = '192.168.1.142';
       break;
     case 'lan': 
-      gatewayServer = '192.168.86.38';
+      gatewayServer = '192.168.1.174';
       break;
   }
 

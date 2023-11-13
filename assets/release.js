@@ -1,5 +1,12 @@
 const releases = [
   {
+    releaseNumber: '1.1.5',
+    releaseDate: '11/13/2023',
+    releaseNotes: [
+      'Updated networking to work with new WDSX network'
+    ]
+  },
+  {
     releaseNumber: '1.1.4',
     releaseDate: '9/26/2023',
     releaseNotes: [
