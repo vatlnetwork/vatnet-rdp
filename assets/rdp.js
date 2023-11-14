@@ -67,9 +67,8 @@ const initLogin = () => {
           <option value="lan" >LAN</option>
         </select>
         <select id="topbar-server" onchange="selectNewServer()" >
-          <option value="server02.vatlnetwork.net" >Server 02</option>
-          <option value="gateway.vatlnetwork.net" >Gateway</option>
-          <option value="server01.vatlnetwork.net" >Server 01</option>
+          <option value="192.168.1.142" >Server 02</option>
+          <option value="192.168.1.174" >Gateway</option>
         </select>
         <select id="topbar-gateway" onchange="selectNewGateway()" >
           <option value="9460" >Gateway 0</option>

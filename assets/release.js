@@ -1,5 +1,12 @@
 const releases = [
   {
+    releaseNumber: '1.1.6',
+    releaseDate: '11/13/2023',
+    releaseNotes: [
+      'Fixed blank dropdown on the top bar'
+    ]
+  },
+  {
     releaseNumber: '1.1.5',
     releaseDate: '11/13/2023',
     releaseNotes: [
