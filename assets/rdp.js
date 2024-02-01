@@ -69,6 +69,7 @@ const initLogin = () => {
         <select id="topbar-server" onchange="selectNewServer()" >
           <option value="192.168.1.142" >Server 02</option>
           <option value="192.168.1.174" >Gateway</option>
+          <option value="172.110.56.2" >External Server 01</option>
         </select>
         <select id="topbar-gateway" onchange="selectNewGateway()" >
           <option value="9460" >Gateway 0</option>
@@ -157,8 +158,8 @@ const setCurrentTheme = (theme) => {
 
 window.onload = () => {
   let hostname = window.location.hostname
-  if (hostname != 'vatnet.viewdns.net') { showDownload() }
-  if (hostname == 'vatnet.viewdns.net') {
+  if (hostname != 'vatlnetwork.ddnsfree.com') { showDownload() }
+  if (hostname == 'vatlnetwork.ddnsfree.com') {
     document.getElementById('info').style.color = 'red'
     document.getElementById('info').style.fontWeight = 'bold'
     document.getElementById('info').innerHTML = 'VATLNetwork RDP client is unusable over this DNS server! The gateway WILL NOT connect!'

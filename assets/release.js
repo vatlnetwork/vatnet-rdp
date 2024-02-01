@@ -1,5 +1,13 @@
 const releases = [
   {
+    releaseNumber: '1.1.7',
+    releaseDate: '02/01/2024',
+    releaseNotes: [
+      'Added external server system for connecting to 3rd party servers.',
+      'Updated the secure dns address'
+    ]
+  },
+  {
     releaseNumber: '1.1.6',
     releaseDate: '11/13/2023',
     releaseNotes: [
