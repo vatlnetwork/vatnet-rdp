@@ -141,7 +141,7 @@ const releases = [
     releaseNumber: '1.0.0',
     releaseDate: '8/17/2023',
     releaseNotes: [
-      'First Stable Release'
+      'First Stable Release (start of release tracking)'
     ]
   }
 ]
