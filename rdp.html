@@ -1,61 +1,26 @@
-<link id="stylesheet" rel="stylesheet" href="" >
+<!-- <script src="./src/int/user/js/goguardian-prot.js" ></script> -->
 
-<div id="rdpcontent" ></div>
+<link rel="stylesheet" href="./src/int/user/css/main.css" >
 
 <html>
-  <title>VATLNetwork RDP</title>
-  <div class="main-box" >
-    <div class="release" id="release" >
+  <title>VATLNetwork WebRDP Client</title>
+
+  <div id="root" >
+    <div class="rdp-form" id="rdp-form" >
+      <div class="togglebtn" onclick="toggleMenu()" >&#9776</div>
+      <select id="gateway-sel" onchange="initiateConnection()" ></select><br>
+      <select id="gateway-server-sel" onchange="initiateConnection()" ></select><br>
+      <select id="server-sel" onchange="initiateConnection()" ></select><br>
+      <select id="vis-mode" onchange="initiateConnection()" >
+        <option value="performance" >Performance</option>
+        <option value="appearance" >Appearance</option>
+      </select><br>
+      <button id="reconnect" onclick="initiateConnection()" >Reconnect</button>
     </div>
-    <div class="loginarea" ><h2>Login</h2></div>
-    <div class="loginarea" >
-      <select id="gateway" class="select" >
-        <option value="9460" class="option" >Gateway 0</option>
-        <option value="9461" class="option" >Gateway 1</option>
-        <option value="9462" class="option" >Gateway 2</option>
-        <option value="9463" class="option" >Gateway 3</option>
-        <option value="9464" class="option" >Gateway 4</option>
-        <option value="9465" class="option" >Gateway 5</option>
-        <option value="9466" class="option" >Gateway 6</option>
-        <option value="9467" class="option" >Gateway 7</option>
-      </select>
-      <select id="server" class="select" >
-        <option value="primary" class="option" >Primary</option>
-        <option value="secondary" class="option" >Secondary</option>
-        <option value="lan" class="option" >LAN</option>
-      </select>
-    </div>
-    <div class="loginarea" >
-      <select id="rserver" class="select" >
-        <option value="192.168.1.142" class="option" >Server 02</option>
-        <option value="192.168.1.174" class="option" >Gateway</option>
-        <option value="172.110.56.2" class="option" >External Server 01</option>
-      </select>
-      <button class="loginbtn" onclick="initLogin()" >Connect</button>
-    </div>
-    <br /><br />
-    <div class="loginarea" id="info" >
-      <div>
-        Click the connect button. If the gateway is full or says maximum number of clients, 
-        switch the gateway and try again. For more info, contact John Gustafson at <i>vatlnetwork@gmail.com</i>
-      </div>
-    </div>
-    <br />
-    <div class="loginarea" id="downloadbtn" >
-      <a href="./rdp-client.zip" target="_blank" >
-        <button class="loginbtn" >Download Client</button>
-      </a>
-    </div>
+    <div id="rdp-content" ></div>
   </div>
-  <input type="checkbox" id="performance-mode" style="display:none;" checked >
 </html>
 
-<script>
-  window.addEventListener('beforeunload', (event) => {
-    event.returnValue = `You are at risk of being under the control of GoGuardian. Do you want to allow GoGuardian to take over your computer?`;
-  });
-</script>
-
-<script src="assets/release.js" ></script>
-<script src="assets/chardata.js" ></script>
-<script src="assets/rdp.js" ></script>
+<script src="./src/int/user/js/enc.js" ></script>
+<script src="./src/int/user/js/config.js" ></script>
+<script src="./src/int/user/js/rdp.dom.js" ></script>

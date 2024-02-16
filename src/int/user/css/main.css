@@ -1,0 +1,95 @@
+/* Styles */
+#root {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.rdp-form {
+  width: max-content;
+  height: 100%;
+}
+
+#rdp-content {
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+select {
+  padding: 10px;
+  width: 300px;
+  margin: 10px;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  padding: 10px;
+  width: 300px;
+  margin: 10px;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+}
+
+.togglebtn {
+  cursor: pointer;
+}
+
+/* Light Mode Specific Styles */
+@media (prefers-color-scheme: light) {
+  .rdp-form {
+    background-color: rgb(230, 230, 230);
+  }
+
+  select {
+    background-color: white;
+    color: black;
+  }
+
+  button {
+    background-color: white;
+    color: black;
+  }
+
+  .togglebtn {
+    background-color: white;
+    color: black;
+  }
+}
+
+/* Dark Mode Specific Styles */
+@media (prefers-color-scheme: dark) {
+  .togglebtn {
+    background-color: rgb(60, 60, 60);
+    color: white;
+  }
+  
+  #root {
+    background-color: rgb(60, 60, 60);
+  }
+
+  .rdp-form {
+    background-color: rgb(100, 100, 100);
+  }
+
+  select {
+    background-color: rgb(60, 60, 60);
+    color: white;
+  }
+
+  button {
+    background-color: rgb(60, 60, 60);
+    color: white;
+  }
+}

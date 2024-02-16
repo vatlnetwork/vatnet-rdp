@@ -1,0 +1,804 @@
+Build 1054
+1. SSH: Fixed file uploading issue when the directory is created from UI.
+2. Config.html: added "Single Sign-on" option for server, default is true.
+
+Build 1053
+1. LDAP: Fixed Null attribute issue on user importing.
+2. Config.html: Removed inline scripts.
+3. RDP: better port checking timeout calculation (portCheckTimes, portCheckInterval).
+
+Build 1052
+1. Native Shadowing: Fixed "not a enum" building issue introduced in 1048.
+
+Build  1051
+1. LDAP: Group name in implorting can be a full distinguished name: "OU=Bayreuth,OU=Company,OU=DE,DC=test,DC=com".
+2. The returlUrl of CONNECT? handler can also be login.html (examplePost.html), means you can use HTTP POST for login.html.
+
+Build 1050:
+1. RDP: Fixed a connecting issue with Ubuntu 22 Remote Desktop.
+2. SSH: Added a new "light" theme along with the original "classic", also added ssh.setTheme(theme) method and hi5.appcfg.ssh.theme option. You can run $ssh.setThem('light') in the Dev Tools to check it.
+3. ALL: Added hi5.appcfg.returnUrl option which redirect to that URL after the session is closed and onclose event is not registered.
+
+Build 1049
+1. LDAP: Fixed "Group" option doesn't work in specific servers.
+
+Build 1048:
+1. RDP: Fixed Null Pointer issue in player.html when recoding is using RDP 6.1 compression.
+2. LDAP: Group name search is not case sensitive anymore during LDAP importing (config.html).
+
+Build 1047:
+1. SSH: Added aes192-ctr and aes192-cbc ciphers.
+2. LDAP: Added "Group" option in config.html for LDAP importing.
+
+Build 1046:
+1. LDAP: Fixed a connection issue with singed LDAPS.
+2. gateway.conf: Added readOnly=true to make it readable only.
+
+Build 1045:
+1. SSH: Fixed hi5.appcfg.wsPost = true  not working issue which was introduced in build 1044.
+
+Build 1044:
+1. SSH: set ssh.etm = false to workaround CVE-2023-48795.
+2. RDP, VNC, SSH, TELNET: added oncreatewebsocket event to allow the library to use an existing WebSocket connection:
+
+//only the parameters are used if it has oncreatewebsocket event listener.
+var rdp = new svGlobal.Rdp("ws://not_used.com/RDP?server=xxx...");
+rdp.oncreatewebsocket = function(url) {
+	//connecting your proxy or SparkGateway directly.
+	var ws = new WebSocket("ws://myproxy.com/RDP?_METHOD=post");
+	return ws;
+};
+
+Make sure you have "/RDP?_METHOD=post" if it's connecting to a SparkGateway server for RDP session.
+
+
+Build 1043:
+1. Wait longer to enter two factor code after 3 failed attempts.
+2. Fixed unauthorised proxy access problem.
+3. Added "Smart Card Sign-in" option in config.html
+4. License expire notification email includes name and license number.
+5. Allow self-singed certificate for LDAP.
+
+Build 1042
+1. SSH: Fixed a recording white screen (timing) issue.
+2. SSH: Fixed a onfocus() null reference issue.
+3. RDP: Fixed Yubikey smart card login issue on Windows and macOS.
+
+Build 1041
+1. VNC: Fixed surface.scaleTo() doesn't work on player issue.
+
+Build 1040
+1. VNC: Fixed NullPointer issue with rec.end.exec on session recording
+
+Build 1039
+1. VNC: Allow directory in __record_name parameter for session recording.
+
+Build 1038
+1. 2FA for Password change.
+2. Password for 2FA deactivation.
+3. 2FA brute force and replay protection.
+4. Clean gateway session when user log off.
+5. Empty password input after user log in.
+6. Right click to paste on Telnet (Doesn't open history dialog anymore).
+7. hi5.appcfg.persistentId to enable/disable persistent session id (disabled by default).
+8. Make sure same warming message return when user credentials are wrong.
+9. Password change is disabled for Domain users.
+10. Fixed wrong "Last Modified" time issue for file uploading (Drive redirection, sftp).
+
+
+Build 1037
+1. Proxy: Fixed websocket proxy issue introduced in 1035.
+
+Build 1036
+1. RDP: Fixed some customized cursor rendering issue.
+2. RDP: Better PWD support.
+3. Fixed Set-Cookie without Secure flag warning.
+
+
+Build 1035
+1. Proxy: Fixed unmatched host name and redirecting issue.
+2. RDP: Improved RemoteApp Windows sizing.
+3. SSH: Fixed input issue after switching window focus.
+4: RDP: Fixed a lock release issue with smart card kerberos authentication.
+
+
+Build 1034:
+1. Player: Fixed "File not found" exception was not captured issue.
+2. .disposable directory is only created when it's in use.
+3. RDP: Fixed  smart card control code error in the agent.
+
+
+Build 1033:
+1. SSH: Right click to paste instead of showing history.
+2. SSH: Added History button in toolbar.
+
+Build 1032:
+1. RDP: Make multi-monitor works when menu bar is hidden or always displayed on macOS.
+2. SSH: Fixed recording file not saved issue when SSH server is restarted.
+
+Build 1031:
+1. Allow sub directories in the __record_name parameter.
+2. SSH: NumpadEnter key is also supported during login.
+
+Build 1030:
+1. RDP: Fixed a cipher suite issue with RD Webfeed integration.
+2. OAUTH: Added auth_uri for oauth2.json.
+3. Rename "kerberos.realm" to "kerberos.kdc" in gateway.conf.
+
+Build 1029:
+1. VNC: Dialog to allow user to enter password if it failed to login.
+2. VNC: Better QEMU extension key compatibility with consol/debian-xfce-vnc container.
+
+Build 1028
+1. Fixed duplicated parameters in the WebSocket URL when the client is reconnecting.
+2. SSH: Fixed a copying issue after scrolling in editor.
+
+Build 1027
+1. VNC: better compatibility when RFB version is 4.
+
+Build 1026
+1. Fixed a issue with authorization = Basic (gateway.conf)
+2. RDP: added added rdp.sessionInfo.joiners and oncontrolchange(sessionInfo)
+3. SSH: added ssh.cache (gateway.conf) to enable/disable SSH history cache for joined sessions (default is true).
+4. Better file type name for file manager.
+
+Build 1025
+1. RDP: allow set up "clientHost" in users.json.
+
+Build 1024
+1. RDP: Fixed a copying file to shared drive issue.
+2. Always disable session id reuse on joined sessions.
+
+Build 1023
+1. RDP: fixed mouse release issue when it's running in iframe.
+2. PROXY: fixed HTTP proxy path issue.
+3. UI: Added HTTP Proxy UI and loadBalanceInfo for RDP.
+4. Kerberos authentication can be enabled with kerberos.realm in gateway.conf.
+
+Build 1022
+1. SSH: Fixed "\n" not handled issue in command list(cmdList).
+2. RDP: Session id parameters are disabled by default (Reuse session id). Turn on with session.id.param = true in gateway.conf.
+
+Build 1021
+1. RDP: Reuse session id if user refresh the browser or reconnect.
+2. RDP: Fixed wrong default time zone name issue.
+3. RDP: Fixed a IE11 compatibility issue.
+4. SSH: Fixed a line wrapping issue.
+5. SSH: Multiple commands are not allowed if command white list is enabled.
+
+Build 1020
+1. SSH: Fixed a JSON format error.
+
+Build 1019
+1. SSH: Fixed a bug with command white list.
+2. RDP: Fixed orientationchange issue on mobile browsers.
+3. Fixed toolbar compatibility issue with jquery on mobile devices.
+4. Agent 2.7 (Windows) fixed a authentication issue with ePass2000.
+
+Build 1018
+1. RDP: Fixed multiple mouse buttons clicking/dragging at the same time issue.
+
+Build 1017
+1. Fixed two mouse button pressing at the same time issue.
+2. New com.toremote.gateway.plugin.HttpAccessInterface, so plugin can verify proxy access.
+public class SimpleManager implements ManagerInterface, HttpAccessInterface {
+    	@Override
+	public void onAccess(HttpHeader header) throws HttpException{
+		System.out.println(header.toString());
+		System.out.println("Is Proxy: " + Proxy.isProxy(header));
+		
+//		throw new HttpException(403, "Forbidden");
+	}
+
+	@Override
+	public void afterAccess(HttpHeader header) {
+		// TODO Auto-generated method stub
+		
+	}	
+3. RDP: New "dpi" parameter.
+
+4. Won't send SMB URL to use if the format is invlaid.
+
+5. Increased connection timeout (for slow network).
+
+
+Build 1016
+1. Better time zone handling.
+2. Fixed a Chrome/Edge crash issue on specific web sites when time zone redirection is enabled. https://bugs.chromium.org/p/chromium/issues/detail?id=1371532&q=STATUS_BREAKPOINT&can=2
+
+Build 1015
+1. Allow playback of the recordings from recdir if you set recdir.play.enable = true in gateway.conf.
+2. No need to include dvc_*.js in player.html.
+
+Build 1014
+1. Attach local printers on Windows (native agent is needed).
+
+Build 1013 (6.2)
+
+Build 1012
+1. More info in sessiondashboard.html.
+2. Fixed a connection issue with native shadowing (shadow.html).
+
+Build 1011
+1. Fixed a high CPU usage (20%) issue on SSH session.
+2. New Agent installer: minimize the console window, more error logs.
+3. Added "Continue" button on Agent dialog.
+
+
+Build 1010
+1. Don't start the gateway agent again if it's running.
+2. New version available notification for gateway agent if version is configured in appcfg.js: agent: {version: {major: 2, minor: 3}}.
+
+Build 1009
+1. The gateway agent will try to listen on port 8095-8097.
+2. More information for sessiondashboard.html: ip, user agent, connection status etc.
+
+
+Build 1008
+1. Fixed a high CPU usage issue.
+
+Build 1007
+1. New window and macOS installer for Gateway Agent.
+2. Bridge.html is not needed for smart card or scanner redireciton with the new installer.
+
+Build 1006
+1. Fixed a issue on 4 or more monitors.
+2. Fixed white screen issue on IE 11.
+3. Press enter to send the Two factor authentication code.
+4. Added license.limit in gateway.conf to restrict the concurrent session number for testing etc.
+5. Exclude the RemoteApp arguments from the log.
+6. Fixed joined RemoteApp session disconnection issue.
+
+
+Build 1005
+1. Better HTTP Proxy (Experimental).
+2. Fixed a connection issue cause by Out of Index exception.
+3. Faster HTTP request handling.
+4. Updated SNMP library to 3.6.6.
+5. "enforce" for multi factor authentication works on rdp.html.
+6. RDP: fixed a null pointer issue on USB redireciton.
+
+Build 1004
+
+1. SNMP: Fixed incorrect enterprise id issue.
+2. Fixed on file.viewable doesn't work on gaetway side issue.
+
+Build 1003
+1. New app.id entry in gateway.conf, which can be used for load balancing. This unique id will be automatically generated if it's not set.
+2. The CONTROL?target=gateway HTTP API returns the app.id too.
+3. The value of hi5.appcfg.loadbalanceTokenName now use app.id in gateway.conf instead of random id.
+3. The value of hi5.appcfg.loadbalanceTokenName can also be included in websocket URL (check rdpdirect.page.js for more details);
+4. Scollbar will be displayed always on macOS if the resolution is bigger than your local browser window.
+
+Build 1002
+1. Fixed AD Group member issue with server.json.
+2. Updated sshdirect.html.
+3. Enable smartCard in servers.json (set smartCard: true);
+4. Organization name for Two factor authentication in gateway.conf (set organization in gateway.conf).
+
+Build 1001
+1. Fixed shift and command key stuck issue when taking screenshot on macOS with Shift+CMD+4.
+2. Fixed groups property in users.json not working issue when the group name is invalid (for Active Directory).
+3. Credentials in SMB URL is not logged.
+
+Build 1000
+1. Support VMWare web console (./html//vmware/index.html, index2.html, need to turn on proxy support: set http.proxy.enable = true in gateway.conf);
+
+Build 999
+1. SSH: reduced memory/CPU usage on gateway.
+2. SSH: new CommandFilterInterface for monitoring commands in plugin.
+3. Added getHeader() method on com.toremote.recording.Merger to get metadata from recording files.
+4. The session HTTP API returns loadbalanceTokenName and value too.
+5. Experimental proxy support to use gateway as a jump host (To turn it on: set http.proxy.enable = true in gateway.conf).
+
+Build 998
+1. VNC: Added vnc.ciphers in gateway.conf for VNC TLS encryption.
+2. SSH: Added ssh.ciphers in gaetway.conf for SSH encryption.
+
+Build 997
+1. RDP: Fixed a failed to copy file issue when the file has specific size.
+2. Added SessionInformation argument in com.toremote.gateway.plugin.Filterable.pipe method.
+3. sessionRecord value will be returned too when you query information for a single session with the HTTP Session API.
+
+Build 996
+1. RDP: Fixed copying file not working issue when mapDisk is disabled.
+2. Added file.filter.download in gateway.conf (file.filter is for uploading).
+
+Build 995
+1. RDP: Supports Smart Card Sign-in with new 'passwordIsPin' parameter.
+
+Build 994
+1. SparkGateway.jar works in Java 8 if SNMP is not enabled.
+
+Build 993 (6.1)
+1. RDP: WebUSB based USB redirection.
+2. RDP: No temporary file generated on gateway when you copy a file from the server.
+3. RDP: New cipherSuitesClient in gateway.conf to configure the cipher suites used in RDP connection.
+4. RDP: New "enforce" value for credSSP entry in gateway.conf.
+5. RDP: RDP server plugin for monitor server (15).
+6. RDP: New toolsdir entry in gateway.conf which will be automatically redirected as a drive and run the RDP plugin for the monitor server (15).
+7. RDP: Fixed "Access denied" issue when downloading a file with Alternated Data Streams. 
+8. RDP: Workaround for Chrome full screen bug 1281939.
+9. SSH: New cmdList parameter for SSH command whitelist or blacklist.
+10. SSH: Supports BCrypt encrypted key file and PKCS#8 format, and aes-256-ctr private key.
+11. SNMP support.
+12. New sessiondashboard.html reference implementation for session notification.
+13. Don't trust connections from localhost in config.html and API with trustLocal = false in gateway.conf.
+14. Fixed a UPN login issue on Active Directory integration.
+15. Standalone Monitor Server for monitoring, event logging.
+16. Fixed downloading issue when files includes special characters.
+Incompatibility warning: Java 9 or later versions are required if SNMP is enabled (Please update to build 994).
+
+
+Build 990
+1. SSH: Fixed a dead lock issue.
+
+Build 989
+1. SSH: Fixed a display issue with Aruba switch.
+2. SSH: Added SSH key option on the UI.
+3. RDP: URL redirection is disabled if the default UI is not used.
+3. examplePost.html can redirect to any other web pages.
+
+Build 988
+1. Added ssh.transferCredential, vnc.transferCredential, telnet.transferCredential in gateway.conf to override the transferCredential value in users.json.
+2. Fixed garbage characters on SSH session when users are configured and 2FA is enabled.
+
+Build 987
+1. RDP: set transferCredentials as true for imported AD users
+
+Build 986
+1. Fixed domain name case sensitive problem on 2FA with active directory integration.
+
+Build 985:
+1. RDP: Fixed a drawing issue when 24 bit color is not available.
+2. Fixed a API access issue on session shadowing.
+
+Build 984:
+1. Fixed Null Pointer Exception when "shadow sessionNumber" in Windows 2008 and clipboard redirection is enabled.
+2. Added file.viewable (default is true) in gateway.conf.
+4. Added releaseOnMouseOut in appcfg.js to release mouse buttons when user move the cursor out of the session. Default is false. This is helpful when session is in a iframe.
+
+Build 983
+1. Removed commons-io library dependency.
+
+Build 982
+1. Fixed a big file (> 10G) downloading issue.
+
+Build 981
+1. Fixed drive redirection not working on Windows 2003 issue.
+
+Build 980
+1. Better lock key status synchronization.
+2. Paste file directly with Ctrl/Command + V (keyboard only).
+3. Fixed a null pointer issue on VNC recording player. 
+4. Workaround for "Connecting AudioNodes from AudioContexts with different sample-rate is currently not supported." error on Firefox when session is running in a iframe.
+5. Fixed starting second RemoteApp issue on login2.html.
+
+Build 979
+1. RDP: customize file path of audiorecorder_min.js in appcfg.js: audiorecorder: "/mylib/audiorecorder_min.js";
+
+Bild 978
+1. SSH: Fixed Alt key status issue after pressing Alt+TAB.
+2. SSH: Removed keyfile log.
+
+Build 977
+1. Fixed RemoteApp sometimes not maximized issue on Windows 2019.
+3. Fixed a drawing issue caused by browser bug.
+
+Build 976
+1. Fixed mouse wheel not working issue on Chrome 89.
+
+Build 975
+1. RDP: better audio quality and performance on microphone redirection.
+2. TELNET: supports utf-8 encoding.
+3. Fixed mouse stuck issue on specific Hyper-V console connection when the resolution is changed in Hyper-V console.
+
+Build 974
+1. Supports OTP code (two factor authentication) on Radius integration.
+2. Supports transferCredential property on Radius integration.
+
+
+Build 973
+1. List session HTTP API can query with "server", "user", "domain", "symlink" and "__ip" parameters.
+2. Fixed RemoteApp permission issue when exe path is used instead of alias name.
+
+
+Build 972
+1. RDP: Fixed copy issue from the non-primary monitor when multi-monitor is enabled.
+2. RDP: Better audio input device detection.
+
+
+Build 971 (6.0.0)
+1. Supports native RDP shadowing. You can use <a href="shadow.html">shadow.html</a> to shadow any active RDP sessions.
+2. Better audio encoding with new thread.
+3. Better resolution change support in session recording.
+4. Fixed recorded session playback issue when the resolution is wrong.
+5. Spark View becomes free personal version by default (allow 2 concurrent sessions) if license file was not found.
+Incompatibility warning: audiorecorder_min.js is added and it'll be loaded by the library automatically. Make sure you deploy it along with other JS files.
+
+
+Build 970
+1. Fixed "Not able to execute command for SSH, TELNET" on iOS.
+2. Use "Submit" as the value of the "Submit" button on all browsers.
+3. Improved audio call quality in Zoom meeting.
+4. More debugging logs for printing.
+
+Build 969
+1. Fixed servers.json serialization bug which was introduced in 968.
+
+Build 968
+1. Fixed copying directory to redirected drive not working issue when gateway is running on Linux.
+
+Build 967
+1. Fixed microphone audio quality issue on ZOOM meeting which happens on Windows 10.
+2. Fixed "You Position" button not working issue for file uploading.
+
+Build 966
+1. File content is allowed for keyfile parameter in SSH.
+2. Set rec.timestampSubDir = false to disable timestamp subdirectory for recording.
+3. rec.begin.exec and rec.end.exec for running an application before or after the session is recorded. Arguments: fileName, server, user, sessionId.
+4. Directories are allowed in __record_name parameter (recording file name).
+
+Build 965
+1. Don't save session information into session recording.
+
+Build 964
+1. Copy/Paste image, html formats with context menu in Chrome and Edge.
+2. Fixed non-ssh message displayed in playeremote.html issue.
+
+Build 963
+1. Fixed compressed audio codec not working on Zoom issue.
+2. Updated third party libraries: Apache HttpClient (4.5.13), PDFBOX (2.0.21), BouncyCastle (1.66), xmlsec (2.2.0). 
+3. Fixed Storage state error after resetting user two-factor authentication with HTTP API.
+
+Build 962
+1. Added errMsgCode and errMsgValue parameters, which can be used to send error information to users.
+2. Fixed session information is visible in recorded SSH session issue.
+3. Workaround for mouseup event can not be captured issue when session is in iframe and mouseup is trigged outside of iframe.
+
+Build 961
+1. Delete the PDF file generated by printing in 2 minutes after it's downloaded (It was 20 seconds).
+
+Build 960
+1. Rollback the buffer size change introduced in build 959.
+
+Build 959
+1. Set soundPref=1 as a workaround of microphone audio issue in Zoom meeting.
+
+Build 958
+1. Fixed a VPN SSO issue on VNC connection.
+
+Build 957
+1. Added setLinks method to change "/DOWNLOAD?", "/CLIP?" links.
+2. Don't show "Uploading finished" message after uploading was cancelled.
+3. Default value of "userRegex" was changed to ".*(([Ll]ogin:)|([Uu]sername:))", default value of "pwdRegex" was changed to ".*[Pp]assword:" for TELNET.
+
+Build 956
+1. Fixed "Cancel uploading" not working issue in RDP.
+2. Supports "fontFamily", "user", "pwd", "userRegex" and "pwdRegex" parameters in TELNET.
+
+Build 955
+1. Supports compression 3 DIB format for clipboard redirection.
+2. Option to send multiple scancodes instead for specific unicode in appcfg.js: scancode: {'a': [{down: true, key: 0x2a}, {down: true, key: 2}, {down: false, key: 2}, {down: false, key: 0x2a}]}. This will send Shift+! scancodes if you press a (unicode keyboard only).
+3. Set scale: true in appcfg.js to scale the remote screen automatically.
+4. Make sure mouse pressing is released before user is reconnecting (This could cause mouse stuck on Hyper-V console session).
+5. Connection without token will be refused if authToken.name is present.
+
+
+
+Build 954
+1. supports csv format log. set csv.file (file path) and csv.size (default 2G) in gateway.conf.
+
+Build 953
+1. Fixed "length of null" issue on SSH when resizing the browser.
+2. New domain attribute in users.json for Active Directory query.
+
+Build 952
+1. Fixed browser side recording issue when server name is null.
+2. Gateway can bind on a specific local network address with gw_local_bind HTTP header.
+3. Fixed TCP_NO_DELAY not working issue on TELNET connection.
+4. login.html can accept user, pwd parameters from the URL.
+5. Fixed SSH copy issue after the browser window was resized.
+6. Fixed SSH bank screen issue after the browser window was resized.
+
+
+Build 951
+1. Ignore other user's mouse input when one user is clicking or dragging on session shadowing.
+2. Set tabCapture: false in appcfg.js to disable tab capture.
+3. Don't use black color anymore for cursor underline on session shadowing.
+
+Build 950
+1. Fixed a Windows 2003 connecting issue when SSL is required by server
+2. Allow invalid session number when fetching information for multi sessions (HTTP Session API).
+3. Fixed "Please wait while connecting" not displayed issue on RemoteApp mode.
+4. "smoothfont" is true by default for RDP.
+5. Force hideLogin as false when joining a RemoteApp session.
+6. Use single color for the underline of joined user's cursor.
+7. Fixed copying issue on SSH with Firefox and Safari
+
+Build 949 (5.9.0)
+1. Supports Webcam redirection.
+2. Supports Scanner redirection.
+4. Supports ADFS OAuth2.
+5. Get multi session information at a time with the HTTP session API: http://yourGateway/SESSION?ids=session1,sessions2&...
+6. Fixed RemoteApp resizing issue.
+7. Fixed a specific DIB format issue on clipboard redirection.
+8. Fixed validTo parameter not working issue on HTTP SYMLINK API.
+
+
+Build 948
+1. Fixed picture was not displayed issue when copying mixed content from MS Word.
+2. Fixed picture was not copied issue when the source is from another origin (cross-origin);
+
+Build 947
+1. Set twoFA = 2 in gateway.conf to enforce two-factor authentication.
+2. Verify hostname for TLS encryption when trustCertOnly is true and trustStore is enabled.
+3. The gateway can create a symbolic link to a public file or folder automatically in redirected drive (diskSymbolicTarget and diskSymbolicName in gateway.conf).
+4. Fixed a "Invalid RTF format" issue when copying formatted text.
+5. Groups filter for Active Directory integration.
+6. Fixed numLock sync issue after browser window is resized.
+
+Build 946
+1. Allow setting up port and security protocols (tls, ssl) for Active Directory integration.
+2. Allow running an external application after user uploaded a file to gateway (file.post in gateway.conf). 
+3. Don't fallback to non-tls encryption if trustStore must be used for RDP connection.
+
+Build 945
+1. Support two-factor authentication on any connections with Google or Microsoft Authenticator.
+2. Fullscreen button with keyboard lock on info dialog, so user can use browser and OS reserved shortcuts (Chrome, Edge, Opera only).
+3. Fixed smart card dialog not displayed issue when smartcard redirection is enabled.
+4. Don't set browser title on player mode.
+5. Player.html can also play a file from the URL: http://anyServer/player.html?target=/recording/file.rdpv
+
+Build 944
+1. Fixed display issue when connecting to specific Windows 2008 or before.
+2. New examplePost.html for HTTP Post integration.
+3. Support two-factor authentication with Google Authenticator.
+4. Make Wake on Lan options available in config.html.
+
+
+Build 943
+1. Make sure resolution is valid even if it's from a trusted source (Server, minWidth, minHeight).
+
+Build 942
+1. Password is not needed for HTTP API to get gateway build information: http://gateway/CONTROL?target=gateway
+
+Build 941
+1. New HTTP API to get gateway build information: http://gateway/CONTROL?target=gateway&...
+2. Set trustStore in gateway.conf, so only trusted RDP, VNC servers can be connected.
+3. SSH: Fixed mouse wheel direction issue.
+
+Build 940
+1. Fixed "Too many open files" issue.
+2. Display timeout info for session initiated with symlink (config.html).
+3. Fixed non-standard port (443) was not used issue when redirecting http to https connection (redirectToHttps = true in gateway.conf).
+
+Build 939
+1. Fixed time not displayed issue on symlink (config.html).
+2. Added "Terminate related sessions" option for symlink (config.html).
+3. Better RemoteApp handling.
+
+Build 938
+1. ctrlToWin (default is true, false: no converting) and cmdToCtrl (default true, false: convert to Windows key) parameters for key mapping on MacOS.
+2. SSH: Support URXVT and SGR mouse modes.
+3. New terminateAll property for symlink, the gateway will terminate related active session if the symlink expired.
+
+Build 937
+1. Set up token name and executable or HTTP service to verify the token.
+2. Fixed "Only one can control" not working on SSH session when it's configured before session joining.
+
+Build 936
+1. RDP: Fixed keyboard redirection code page issue introduced in build 935.
+
+Build 935
+1. SSH: Fixed browser no response issue with large output.
+2. RDP: Fixed appcfg.numLock = true not working issue on specific RDP severs.
+3. RDP: Try to close all active RemoteApps when connection is disconnected by setting appcfg.closeRemoteApp = true.
+4. RDP: Fixed IntlRo, IntlYen input issue on Japanese keyboard (Unicode only);
+
+Build 934
+1. hi5.appcfg.ctrlToWin option to disable mapping Ctrl key to Windows key on macOS.
+2. RDP: Fixed Numlock disabled issue when resizing the browser.
+
+Build 933
+1. RDP: new onnetworkresult(result) event and getNetworkResult() for Network Characteristics. disabled by default, set hi5.appcfg.detectNetwork = true to enable it.
+2. RDP: hi5.appcfg.displayVC option to disable Display Update Virtual Channel.
+3. More arguments for com.toremote.gateway.Encryption tool, which can encrypt passwords in gateway.conf automatically, and return encrypted password without user input.
+4. Allow unverified email for access token in OAuth2 (Fixed a parsing error with Okta).
+5. Don't rename the file name any more when copy file from the server.
+6. Physical keyboard can be used directly on iOS (No need to click the keyboard icon).
+
+
+Build 932
+1. VNC: Catch invalid resolution error when connecting to extra port on TightVNC.
+2. Fixed a RemoteApp window resizing issue.
+
+Build 931:
+1. VNC: Supports Apple user name, password authentication.
+2. VNC: Better performance on Tight encoding.
+
+Build 930:
+1. Remove expired symlink every 5 minutes.
+2. New delSymlinkServer switch in gateway.conf, if it's true (default is false), the gateway will delete the related server if a symlink was deleted.
+3. Fixed first key not working issue after pressing numpad key with Unicode keyboard and French local.
+4. Display full user name instead on cursor with session shadowing.
+
+Build 929:
+1. Use fewer memory when copying file from remote to local.
+2. Fixed onurlredirection not working issue.
+3. Fixed AltGr, !, NumpadEqual key issues on IE/Edge with French unicode keyboard.
+4. Fixed player seeking position issue, and dependency on remotectl canvas on VNC playback.
+5. Fixed beforeupload return true not working issue.
+
+
+Build 928:
+1. Don't query DNS when host name is not in white-list.
+2. Fixed number and Alt+NumPad input issue on unicode keyboard combined with local French OS.
+
+Build 927:
+1. RDP: Added resetSize(width, height) to adjust the resolution for remote desktop and display and display area for RemoteApp.
+2. VNC: Fixed a recorded file playing back issue.
+3. VNC: Fixed sending extra KEY_RESERVED when pressing SYSRQ on TigerVNC with RawKeyboard enabled.
+4. VNC/SSH: Fixed connection issue when confirmJoin is true.
+5. ALL: LocalInteface supports customized ui components: var surface = new svGlobal.LocalInteface(canvas, {notifications: new hi5.Notification(rootContainer), pcKey: yourPckKey, toolbar: yourToolbar});
+6. Fixed seekbar position not working issue when playing recorded ssh session.
+
+Build 926
+1. RDP: Close the file downloading notification after the file was downloaded.
+
+Build 925
+1. VNC: Fixed no keyboard input issue when qemu keyboard extension enabled in the VNC server.
+
+Build 924
+1. RDP: Fixed session disconnecting issue when fileUnprompted is set in gateway.conf in a rare case.
+2. RDP: Fixed wrong key generated issue when pressing Shift+7, NumPad_Add on Unicode keybaord.
+3. RDP: Fixed Ctrl+PrtScn generateing PrtScn down/up, Ctrl down/up issue.
+4. RDP: hi5.appcfg.remoteCursor = true to use remote cursor only.
+5. Fixed element of null issue when closing a session.
+
+Build 923
+1. Fixed SSO not working issue on RD webfeed integration.
+2. Fixed getButton of null (toolbar) issue.
+
+Build 922:
+1. Fixed Illegal char * issue on RDWeb feed integration (Invalid Windows Path).
+
+Build 921:
+1. The gateway sets a JESSIONID cookie, which can be used by load balancer.
+2. FILE: Fixed "Marlformed URL" exception in SMB2/SFTM file proxy.
+
+Build 920:
+5.8 release
+Build 919
+1. RDP: Fixed duplicated PrtScn key issue on Linux Chrome.
+2. RDP: set box-sizing of PDF dialog as "content-box" to avoid boostrap css conflict.
+3. RDP: removed "%%" from the PS to PDF convertion progress message.
+4. RDP: Async image copy/paste on Chrome (Ver 76 and later).
+5. SSH: session can be paused too.
+
+Build 918
+1. RDP: Copy/paste file doesn't depend on mapDisk = true any more.
+2. File Manager UI can be sorted by clicking on the table tile.
+3. Fixed url of copied image is not customizable issue (via rdp.modifyURL method).
+4. Catch clipboard-read/write is not a valid permission name issue on Firefox.
+5. Fixed clipboardRead of null issue in rare case.
+
+Build 917
+1. SSH: Prefer keybaord-interactive authentication by default. To disable it, set preferInteractive=false in gateway.conf
+2. SSH: Fixed a dsiplay issue with PowerShell on Linux.
+3. SSH: Display image or download file with base64 command.
+
+Build 916
+1. RDP: Workaround for onloggedin event not fired on XRDP issue.
+2. VNC: Supports RFB 3.7, TLS, VeNCrypt encryption etc(Vine, Tiger).
+3. VNC: Fixed "encoding of null" issue in rare case.
+4. SSH: Fixed a bug on Keyboard-Interactive authentication.
+5. SSH: onusername and onauthprompt events to customize authentication UI.
+
+Build 915
+1. Fixed a OpenLDAP authentication issue.
+
+Build 914
+1. Fixed a PS to PDF converting error when printing big PDF files.
+
+Build 913
+1. RDP: Fixed property .check of null issue after the session is closed.
+
+Build 912
+1. RDP: Fixed object is null issue (obj.uuid) when useWorker == true;
+2. RDP: Timeout is configurable when converting printing job to PDF (maxPrintTime in gateway.conf).
+3. RDP: Notify user printing (PDF Converting) status.
+4. RDP: Fixed a high CPU usage issue caused by HTML to RTF converting (Copy/Paste).
+5. Set maxRequestBytes for HTTP header size (default is 8K).
+
+Build 911
+1. RDP: Added Muti-Monitor option on login.html, login2.html, login3.html.
+2. Fixed empty user name issue (Sessions) on config.html.
+3. RDP: Fixed white screen issue when RDP session is redirected to a RDP server with multiple network cards.
+4. RDP: rdpdirect.html use web address as default gateway if the gateway parameter is not set.
+5. Disabled auto complete on all password fields.
+
+Build 910
+1. Change password on AD integration.
+2. Password expiration (in 9 days) notification on AD integration.
+
+Build 909
+1. sso.html for VPN integration
+
+Build 907
+1. SSH: can upload file bigger than 1GB (up to 8PB).
+
+Build 906
+1. Text selcteion in SSH improved, background color is cutomisiable with hi5.appcfg.selectionColor = "white" 
+2. RDP: Right click copy/paste is supported on Chrome and IE (Text only).
+3. SSH: ssh.mapCmdToCtrl = false to disable mapping command key to control key on macOS.
+
+Build 905
+1. Fixed file downloading issue when using login.html.
+2. Better timezone detection on non-IE browsers.
+
+Build 904
+1. SSH: onclose supports "expected" argument too.
+2. SSH: fixed onerror not fired issue when gateway is down.
+3. Improved performance on HTTP Sessin API.
+
+Build 903 (5.7)
+1. RDP: Send scancode instead for numbers on unicode keyboard.
+2. SSH: Option to disable auto resolution change (set reconnectOnResize as false, same as RDP).
+3. SSH: Added reconnect(width, height) method (same as RDP).
+
+
+Build 902
+
+1. SSH: Fixed \| key issue on UK keyboard
+2. SSH: Fixed disconnection issue when click on "Your position".
+
+Build 901
+
+1. RDP will automatically choose the best printer driver instead of "MS Publisher Imagesetter" for target OS if printer driver is not configured in gateway.conf (Tested on Windows 2003, 2008, 2012, 2016, 7, 10).
+2. The gateway will not send license expiry message to the browser anymore.
+3. Fixed a deadlock issue on session shadowing.
+4. SSH: Fixed ping method affecting VIM editor input issue. 
+
+Build 900
+
+1. Fixed a regression bug introduced in build 899: File downloading will stop working if you join the same session from same browser.(Click the join link from the information dialog). 
+
+Build 899
+
+1. Fixed issue that people can download other user's file if they know the user GUID and file name (rdpcore_min.js, SparkGateway.jar). Cookie in browser must be enabled, otherwise, user can not download files.
+
+2. Fixed file dialog disappear issue when resizing the browser (surface_min.js).
+ 
+  
+
+Build 898
+
+1. Fixed unicode file name encoding issue when gateway running on Ubuntu. 
+
+2. Fixed file uploading dialog becoming smaller bug after uploading files when bootstrap css is used.
+
+3. Fixed Safari audio playing back issue when open RDP connection in an new window.
+
+4. Fixed VNC memory leak issue when keep connecting and disconnecting.
+
+5. Fixed SSH display issue when connecting to Procurve and Aruba Switches.
+
+6. Fixed SFTP(SSH) downloading issue when file path includes .. 
+
+
+
+
+Build 895
+1. Fixed encrypted PDF file printing issue. (SparkGateway.jar).
+
+2. Fixed 2 PDF files generated issue when printing multiple files. (SparkGateway.jar)
+
+3. Fixed resizing issue with IE on Kiosk Mode. (rdp_min.js)
+
+4. Fixed WVONE-15289  RDP: After Zoom-out and Zoom-In to 100%, the resolution falls back to default (rdp_min.js)
+
+5. Fixed file uploading issue when the file size is bigger than 6G (now up to 8PB).
+
+6. Third party library: PDFBox updated to 2.0.12, Added libraries which were removed from Java 11: jaxb-api, javax.mail; tested with Oracle Java 11 and OpenJDK 11.
+
