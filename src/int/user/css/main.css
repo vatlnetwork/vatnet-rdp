@@ -8,6 +8,10 @@
   display: flex;
 }
 
+#https-warning {
+  color: red;
+}
+
 .rdp-form {
   width: max-content;
   height: 100%;

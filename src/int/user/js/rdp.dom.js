@@ -92,9 +92,16 @@ const toggleMenu = () => {
   menuCollapsed = true
 }
 
+const checkIfHttps = () => {
+  if (window.location.protocol == "https:") {
+    document.getElementById("https-warning").innerHTML = "Warning! This application will not work over https!"
+  }
+}
+
 window.onload = () => {
   populateGatewaySel()
   populateGatewayServerSel()
   populateServerSel()
   initiateConnection()
+  checkIfHttps()
 }
