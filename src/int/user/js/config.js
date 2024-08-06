@@ -5,18 +5,8 @@ const config = {
       address: "192.168.1.142",
       port: 3389,
     },
-    {
-      name: "Linux",
-      address: "192.168.1.174",
-      port: 3389,
-    },
   ],
   extServers: [
-    {
-      name: "Josiah Grow",
-      address: "172.110.56.2",
-      port: 3389,
-    },
   ],
   gateways: [
     {
@@ -55,6 +45,6 @@ const config = {
   gatewayServers: {
     primary: encryption(),
     secondary: "192.168.1.142",
-    lan: "192.168.1.174",
+    lan: "192.168.1.142",
   },
 };
